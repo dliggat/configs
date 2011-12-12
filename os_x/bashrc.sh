@@ -3,7 +3,7 @@ TODO_ROOT="/Users/$USER/Dropbox/todo"
 EXCLUDE="slp"
 # A function to dispatch access to todo.txt.
 function t() {
-    # `t` - No args => just list the task list.
+    # `t` - No args => just list the task list, but exclude the $EXCLUDE string.
     if [ $# -eq 0 ] 
     then
         $TODO_ROOT/todo.sh -a -d $TODO_ROOT/todo.cfg ls | grep -v $EXCLUDE
@@ -57,4 +57,8 @@ export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
 export LSCOLORS='GxHxxxxxFxxxxxxxxxgxgx'
 
+# My custom environment variables and aliases.
+export notes="/Users/$USER/Dropbox/notes"
+alias grep='grep --color=auto'
+alias ff='find . -type f | sort'
 alias statement='python /Users/$USER/git/mbna_parser/parser.py'
