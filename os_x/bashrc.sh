@@ -19,6 +19,10 @@ function t() {
     fi
 }
 
+function parse_git_branch {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo "("${ref#refs/heads/}")"
+}
 
 function shortpath {
   #   How many characters of the $PWD should be kept
@@ -42,7 +46,7 @@ START="\[\e["
 STOP="\[\e[m\]"
 PROMPT_COMMAND='RET=$?;'
 RET_VALUE='$(echo $RET)'
-export PS1="$START$GREEN$RET_VALUE$STOP$START$YELLOW \u@\h$STOP:$START$WHITE\$(shortpath)$STOP \$ "
+export PS1="$START$GREEN$RET_VALUE$STOP$START$YELLOW \u@\h$STOP:$START$WHITE\$(shortpath)$STOP$START$RED\$(parse_git_branch)$STOP \$ "
 
 # MacPorts Installer addition on 2011-10-17_at_22:30:41: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
