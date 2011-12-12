@@ -53,4 +53,4 @@ export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
 export LSCOLORS='GxHxxxxxFxxxxxxxxxgxgx'
 
-alias statement='python /Users/daveliggat/git/mbna_parser/parser.py'
+alias statement='python /Users/$USER/git/mbna_parser/parser.py'
