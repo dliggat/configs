@@ -55,7 +55,7 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # How to set ls colors: http://www.napolitopia.com/2010/03/lscolors-in-osx-snow-leopard-for-dummies/
 export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
-export LSCOLORS='GxHxxxxxFxxxxxxxxxgxgx'
+export LSCOLORS='GxHxxxxxBxxxxxxxxxgxgx'
 
 # My custom environment variables and aliases.
 export notes="/Users/$USER/Dropbox/notes"
