@@ -62,3 +62,4 @@ export notes="/Users/$USER/Dropbox/notes"
 alias grep='grep --color=auto'
 alias ff='find . -type f | sort'
 alias statement='python /Users/$USER/git/mbna_parser/parser.py'
+alias gs='git status'
