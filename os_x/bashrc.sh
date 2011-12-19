@@ -68,3 +68,4 @@ alias sha1sum='openssl sha1'
 # Enable the ability to prevent addition to .bash_history with prepended space.
 export HISTCONTROL=ignorespace
 
+
