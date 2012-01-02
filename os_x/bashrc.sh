@@ -61,11 +61,9 @@ export LSCOLORS='GxHxxxxxBxxxxxxxxxgxgx'
 export notes="/Users/$USER/Dropbox/notes"
 alias grep='grep --color=auto'
 alias ff='find . -type f | sort'
-alias statement='python /Users/$USER/git/mbna_parser/parser.py'
+alias statement='python /Users/$USER/git/statement_parser/parser.py'
 alias gs='git status'
 alias sha1sum='openssl sha1'
 
 # Enable the ability to prevent addition to .bash_history with prepended space.
 export HISTCONTROL=ignorespace
-
-
