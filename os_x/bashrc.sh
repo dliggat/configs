@@ -46,7 +46,7 @@ START="\[\e["
 STOP="\[\e[m\]"
 PROMPT_COMMAND='RET=$?;'
 RET_VALUE='$(echo $RET)'
-export PS1="$START$GREEN$RET_VALUE$STOP$START$YELLOW \u@\h$STOP:$START$WHITE\$(shortpath)$STOP$START$RED\$(parse_git_branch)$STOP \$ "
+export PROMPT_COMMAND='PS1="\`if [[ \$? = "0" ]]; then echo "\\[\\033[32m\\]"; else echo "\\[\\033[31m\\]"; fi\`[\!] $START$YELLOW\u@\h:$STOP $START$WHITE\$(shortpath)$STOP$START$RED\$(parse_git_branch)$STOP \$ "'   
 
 # MacPorts Installer addition on 2011-10-17_at_22:30:41: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
