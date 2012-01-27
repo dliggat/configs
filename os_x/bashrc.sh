@@ -64,6 +64,7 @@ alias ff='find . -type f | sort'
 alias statement='python /Users/$USER/git/statement_parser/parser.py'
 alias gs='git status'
 alias sha1sum='openssl sha1'
+alias spec='spec -b -c -f s'
 
 # Enable the ability to prevent addition to .bash_history with prepended space.
 export HISTCONTROL=ignorespace
