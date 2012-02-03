@@ -68,3 +68,9 @@ alias statement='python /Users/$USER/git/statement_parser/parser.py'
 
 # Enable the ability to prevent addition to .bash_history with prepended space.
 export HISTCONTROL=ignorespace
+
+# Bring in any local, machine specific variables that should not be committed to github.
+if [ -f ~/.localrc ]; then
+  source ~/.localrc
+fi
+
