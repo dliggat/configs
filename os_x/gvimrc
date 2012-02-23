@@ -1,5 +1,8 @@
-set guifont=Monaco:h14"
+"Wrap lines at word boundaries - not as useful in console, but good for MacVim.
 set wrap
 set formatoptions=l
 set lbr
+
+set guioptions-=T  "Don't show toolbar.
+set guifont=Monaco:h13"
 colorscheme thegoodluck
