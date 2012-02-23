@@ -3,6 +3,7 @@ set wrap
 set formatoptions=l
 set lbr
 
+set spell
 set guioptions-=T  "Don't show toolbar.
 set guifont=Monaco:h13"
 colorscheme thegoodluck
