@@ -61,6 +61,7 @@ export LSCOLORS='GxHxxxxxBxxxxxxxxxgxgx'
 # My custom environment variables and aliases.
 export notes="/Users/$USER/Dropbox/notes"
 alias ff='find . -type f | sort'
+alias fd='find . -type d | sort'
 alias grep='grep --color=auto'
 alias gs='git status'
 alias sha1sum='openssl sha1'
