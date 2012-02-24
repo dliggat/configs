@@ -175,6 +175,8 @@ function! SetArrowKeysAsTextShifters()
     inoremap  <S-Left>   <NOP>
     inoremap  <S-Right>  <NOP>
 endfunction
- 
-call SetArrowKeysAsTextShifters()
+
+if !has('gui_running')
+  call SetArrowKeysAsTextShifters()
+endif
 
