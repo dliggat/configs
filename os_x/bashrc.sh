@@ -11,7 +11,7 @@ function t() {
     # `t edit` => open the task list for edit in a text editor. 
     elif [ "$1" = "edit" ]
     then
-        edit $TODO_ROOT/todo.txt
+        open $TODO_ROOT/todo.txt
 
     # Otherwise pass the arguments to todo.sh.
     else
