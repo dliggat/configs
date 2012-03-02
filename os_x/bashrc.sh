@@ -1,3 +1,5 @@
+## Personal bashrc file for OS X machines. Contains aliases, env vars, etc.
+
 #### Todo.txt related stuff follows.
 TODO_ROOT="/Users/$USER/Dropbox/todo"
 EXCLUDE="slp"
