@@ -21,6 +21,7 @@ then
   cp "$GIT_DIR/bashrc.sh"        "$LOCAL_DIR/.bashrc"
   cp "$GIT_DIR/vimrc"            "$LOCAL_DIR/.vimrc"
   cp "$GIT_DIR/gvimrc"           "$LOCAL_DIR/.gvimrc"
+  cp "$GIT_DIR/gitignore"        "$LOCAL_DIR/.gitignore"
 elif [ $1 == 'to_git' ]
 then
   echo "Copying files from local to git repository..."
@@ -28,6 +29,7 @@ then
   cp "$LOCAL_DIR/.bashrc"        "$GIT_DIR/bashrc.sh"        
   cp "$LOCAL_DIR/.vimrc"         "$GIT_DIR/vimrc"            
   cp "$LOCAL_DIR/.gvimrc"        "$GIT_DIR/gvimrc"           
+  cp "$LOCAL_DIR/.gitignore"     "$GIT_DIR/gitignore"
 else
   echo "Error. $(usage)"
   exit 1
