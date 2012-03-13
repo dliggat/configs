@@ -69,6 +69,7 @@ alias gs='git status'
 alias sha1sum='openssl sha1'
 alias spec='rspec -b -c -f s'
 alias statement='python /Users/$USER/git/statement_parser/parser.py'
+alias clean='pbpaste | pbcopy'
 
 # Enable the ability to prevent addition to .bash_history with prepended space.
 export HISTCONTROL=ignorespace
