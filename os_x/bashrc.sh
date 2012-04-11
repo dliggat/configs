@@ -2,13 +2,13 @@
 
 #### Todo.txt related stuff follows.
 TODO_ROOT="/Users/$USER/Dropbox/todo"
-EXCLUDE="slp"
+EXCLUDE="foobar"
 # A function to dispatch access to todo.txt.
 function t() {
     # `t` - No args => just list the task list, but exclude the $EXCLUDE string.
     if [ $# -eq 0 ] 
     then
-        $TODO_ROOT/todo.sh -a -d $TODO_ROOT/todo.cfg ls | grep -v $EXCLUDE
+        $TODO_ROOT/todosh/todo.sh -a -d $TODO_ROOT/todo.cfg ls | grep -v $EXCLUDE
 
     # `t edit` => open the task list for edit in a text editor. 
     elif [ "$1" = "edit" ]
@@ -17,7 +17,7 @@ function t() {
 
     # Otherwise pass the arguments to todo.sh.
     else
-        $TODO_ROOT/todo.sh -a -d $TODO_ROOT/todo.cfg $*
+        $TODO_ROOT/todosh/todo.sh -a -d $TODO_ROOT/todo.cfg $*
     fi
 }
 
