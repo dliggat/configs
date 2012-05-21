@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 function usage() {
   echo "Usage: `basename $0` { to_local | to_git }"
 }
