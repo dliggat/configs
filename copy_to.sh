@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function usage() {
-  echo "Usage: `basename $0` { to_local | to_git }"
+  echo "Usage : `basename $0` { to_local | to_git }"
 }
 
 EXPECTED_ARGS=1
