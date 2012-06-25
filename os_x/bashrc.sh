@@ -20,6 +20,17 @@ function t() {
     fi
 }
 
+# Print the list in reverse order => show high priority at bottom.
+function tt()
+{
+    if [ $# -gt 0 ]
+    then
+      echo "Error: No arguments supported."
+    else
+      $TODO_ROOT/todosh/todo.sh -a -d $TODO_ROOT/todo.cfg ls | grep -v $EXCLUDE | tail -r
+    fi
+}
+
 function parse_git_branch {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
   echo "("${ref#refs/heads/}")"
