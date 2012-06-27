@@ -21,13 +21,14 @@ function t() {
 }
 
 # Print the list in reverse order => show high priority at bottom.
-function tt()
+# f() is t() backwards for mnemonic purposes.
+function f()
 {
     if [ $# -gt 0 ]
     then
-      echo "Error: No arguments supported."
+      echo "Error: Arguments not supported."
     else
-      $TODO_ROOT/todosh/todo.sh -a -d $TODO_ROOT/todo.cfg ls | grep -v $EXCLUDE | tail -r
+      t | tail -r
     fi
 }
 
