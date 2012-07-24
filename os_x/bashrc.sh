@@ -76,6 +76,7 @@ export notes="/Users/$USER/Dropbox/notes"
 alias ff='find . -type f | sort'
 alias fd='find . -type d | sort'
 alias grep='grep --color=auto'
+alias grepi='grep -i'
 alias gs='git status'
 alias sha1sum='openssl sha1'
 alias spec='rspec -b -c -f s'
