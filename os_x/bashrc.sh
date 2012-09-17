@@ -61,9 +61,8 @@ PROMPT_COMMAND='RET=$?;'
 RET_VALUE='$(echo $RET)'
 export PROMPT_COMMAND='PS1="\`if [[ \$? = "0" ]]; then echo "\\[\\033[32m\\]"; else echo "\\[\\033[31m\\]"; fi\`[\!] $START$YELLOW\u@\h:$STOP $START$WHITE\$(shortpath)$STOP$START$RED\$(parse_git_branch)$STOP \$ "'   
 
-# MacPorts Installer addition on 2011-10-17_at_22:30:41: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
+# Putting /usr/local/bin in front of other paths in $PATH as suggested by `brew doctor`.
+export PATH=/usr/local/bin:$PATH
 
 # How to set ls colors: http://www.napolitopia.com/2010/03/lscolors-in-osx-snow-leopard-for-dummies/
 # This DOES NOT work in linux (at least not Fedora). In Linux, need to change /etc/DIR_COLORS.
