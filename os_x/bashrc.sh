@@ -82,6 +82,7 @@ alias spec='rspec -b -c -f s'
 alias statement='python /Users/$USER/git/statement_parser/parser.py'
 alias clean='pbpaste | pbcopy'
 alias pwgen='ruby ~/git/scripts/pwgen.rb'
+alias ts='date +"%Y-%m-%d %H:%M:%S" | perl -ne "chomp and print" | pbcopy'
 
 # Enable the ability to prevent addition to .bash_history with prepended space.
 export HISTCONTROL=ignorespace
