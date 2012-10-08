@@ -63,6 +63,7 @@ export PROMPT_COMMAND='PS1="\`if [[ \$? = "0" ]]; then echo "\\[\\033[32m\\]"; e
 
 # Putting /usr/local/bin in front of other paths in $PATH as suggested by `brew doctor`.
 export PATH=/usr/local/bin:$PATH
+export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
 
 # How to set ls colors: http://www.napolitopia.com/2010/03/lscolors-in-osx-snow-leopard-for-dummies/
 # This DOES NOT work in linux (at least not Fedora). In Linux, need to change /etc/DIR_COLORS.
