@@ -1,182 +1,38 @@
-"## vimrc file - used in Linux and OS X.
+""
+"" Janus setup
+""
 
-set nocompatible  "Don't behave in a strong vi-compatible way, apparently.
-"Stuff from Rick's .vimrc file.
-runtime! debian.vim
-syntax on
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal g'\"" | endif
-endif
-if has("autocmd")
-  filetype indent on
-  set autoindent    " always set autoindenting on
-endif
-set incsearch   " Incremental search
-set ts=2
-set sw=2
-set hlsearch
+" Define paths
+let g:janus_path = escape(fnamemodify(resolve(expand("<sfile>:p")), ":h"), ' ')
+let g:janus_vim_path = escape(fnamemodify(resolve(expand("<sfile>:p" . "vim")), ":h"), ' ')
+let g:janus_custom_path = expand("~/.janus")
 
-set expandtab
-set softtabstop=2
-"au BufEnter *.c setl noexpandtab softtabstop=4
-"au BufEnter *.rb setl expandtab softtabstop=2
+" Source janus's core
+exe 'source ' . g:janus_vim_path . '/core/before/plugin/janus.vim'
 
-set wildmode=longest,list
+" You should note that groups will be processed by Pathogen in reverse
+" order they were added.
+call janus#add_group("tools")
+call janus#add_group("langs")
+call janus#add_group("colors")
 
-set nowrap  "Don't wrap lines.
-set backspace=indent,eol,start
-set ruler "Show the cursor position all the time
+""
+"" Customisations
+""
 
-
-if has('mouse')
-  set mouse=a
+if filereadable(expand("~/.vimrc.before"))
+  source ~/.vimrc.before
 endif
 
-" F7: Toggle list mode (aka. visible whitespace)
-set listchars=tab:>-,trail:·,eol:$
-nnoremap \tl :set invlist list?<CR>
-nmap <F7> \tl
 
-"Ignore case when searching.
-set ignorecase
-set smartcase
+" Disable plugins prior to loading pathogen
+exe 'source ' . g:janus_vim_path . '/core/plugins.vim'
 
-"How many file lines per scroll.
-set scrolloff=3
+""
+"" Pathogen setup
+""
 
-"From stackoverflow: make the terminal tab show the filename.
-let &titlestring = expand("%:t")
-if &term == "screen"
-  set t_ts=^[k
-  set t_fs=^[\
-endif
-if &term == "screen" || &term == "xterm"
-  set title
-endif
+" Load all groups, custom dir, and janus core
+call janus#load_pathogen()
 
-"Turn off the bloody annoying beep.
-set vb
-
-"Use the well known ir_black colorscheme in colors dir.
-:colorscheme ir_black
-
-"Map semicolon to colon to avoid extra shift when entering command mode.
-nmap ; :
-
-"Toggle on/off insert paste mode.
-set pastetoggle=<F2>
-
-"Nerdtree stuff.
-nmap , :NERDTreeToggle<CR>
-
-"Function to toggle line numbers.
-set number  "Show line numbers.
-map <F4> :set number!<CR>
-
-"Function to toggle mouse setting.
-nnoremap <F3> :call ToggleMouse()<CR>
-function! ToggleMouse()
-  if &mouse == 'a'
-    set mouse=r
-    echo "Mouse set to r (for paste to external)"
-  else
-    set mouse=a
-    echo "Mouse set to a (use mouse for -- VISUAL -- selection)"
-  endif
-endfunction
-
-" Paste a range from Excel into Vim, then run:   :call ExcelToCsv()
-" This will replace all whitespace element markers with commas.
-function ExcelToCsv()
-  %s/ *\t */,/g
-endfunction
-
-" Taken from http://jeetworks.org/node/89
-" Use the arrow keys to delete/insert blank lines and indent/dedent.
-function! DelEmptyLineAbove()
-    if line(".") == 1
-        return
-    endif
-    let l:line = getline(line(".") - 1)
-    if l:line =~ '^\s*$'
-        let l:colsave = col(".")
-        .-1d
-        silent normal! <C-y>
-        call cursor(line("."), l:colsave)
-    endif
-endfunction
- 
-function! AddEmptyLineAbove()
-    let l:scrolloffsave = &scrolloff
-    " Avoid jerky scrolling with ^E at top of window
-    set scrolloff=0
-    call append(line(".") - 1, "")
-    if winline() != winheight(0)
-        silent normal! <C-e>
-    endif
-    let &scrolloff = l:scrolloffsave
-endfunction
- 
-function! DelEmptyLineBelow()
-    if line(".") == line("$")
-        return
-    endif
-    let l:line = getline(line(".") + 1)
-    if l:line =~ '^\s*$'
-        let l:colsave = col(".")
-        .+1d
-        ''
-        call cursor(line("."), l:colsave)
-    endif
-endfunction
- 
-function! AddEmptyLineBelow()
-    call append(line("."), "")
-endfunction
- 
-" Arrow key remapping: Up/Dn = move line up/dn; Left/Right = indent/unindent
-function! SetArrowKeysAsTextShifters()
-    " normal mode
-    nmap <silent> <Left> <<
-    nmap <silent> <Right> >>
-    nnoremap <silent> <Up> <Esc>:call DelEmptyLineAbove()<CR>
-    nnoremap <silent> <Down>  <Esc>:call AddEmptyLineAbove()<CR>
-    nnoremap <silent> <C-Up> <Esc>:call DelEmptyLineBelow()<CR>
-    nnoremap <silent> <C-Down> <Esc>:call AddEmptyLineBelow()<CR>
- 
-    " visual mode
-    vmap <silent> <Left> <
-    vmap <silent> <Right> >
-    vnoremap <silent> <Up> <Esc>:call DelEmptyLineAbove()<CR>gv
-    vnoremap <silent> <Down>  <Esc>:call AddEmptyLineAbove()<CR>gv
-    vnoremap <silent> <C-Up> <Esc>:call DelEmptyLineBelow()<CR>gv
-    vnoremap <silent> <C-Down> <Esc>:call AddEmptyLineBelow()<CR>gv
- 
-    " insert mode
-    imap <silent> <Left> <C-D>
-    imap <silent> <Right> <C-T>
-    inoremap <silent> <Up> <Esc>:call DelEmptyLineAbove()<CR>a
-    inoremap <silent> <Down> <Esc>:call AddEmptyLineAbove()<CR>a
-    inoremap <silent> <C-Up> <Esc>:call DelEmptyLineBelow()<CR>a
-    inoremap <silent> <C-Down> <Esc>:call AddEmptyLineBelow()<CR>a
- 
-    " disable modified versions we are not using
-    nnoremap  <S-Up>     <NOP>
-    nnoremap  <S-Down>   <NOP>
-    nnoremap  <S-Left>   <NOP>
-    nnoremap  <S-Right>  <NOP>
-    vnoremap  <S-Up>     <NOP>
-    vnoremap  <S-Down>   <NOP>
-    vnoremap  <S-Left>   <NOP>
-    vnoremap  <S-Right>  <NOP>
-    inoremap  <S-Up>     <NOP>
-    inoremap  <S-Down>   <NOP>
-    inoremap  <S-Left>   <NOP>
-    inoremap  <S-Right>  <NOP>
-endfunction
-
-if !has('gui_running')
-  call SetArrowKeysAsTextShifters()
-endif
-
+" .vimrc.after is loaded after the plugins have loaded

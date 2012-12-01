@@ -1,9 +1,12 @@
-"Wrap lines at word boundaries - not as useful in console, but good for MacVim.
-set wrap
-set formatoptions=l
-set lbr
+if filereadable(expand("~/.gvimrc.before"))
+  source ~/.gvimrc.before
+endif
 
-set spell
-set guioptions-=T  "Don't show toolbar.
-set guifont=Monaco:h13"
-colorscheme thegoodluck
+" CtrlP OS-X Menu remapping
+if janus#is_plugin_enabled('ctrlp') && has("gui_macvim")
+  macmenu &File.New\ Tab key=<D-S-t>
+endif
+
+if filereadable(expand("~/.gvimrc.after"))
+  source ~/.gvimrc.after
+endif

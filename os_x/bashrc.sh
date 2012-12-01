@@ -48,6 +48,7 @@ function shortpath {
   echo $newPWD
 }
 
+
 # Taken from http://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/
 # Also read this: http://superuser.com/questions/246625/bash-command-prompt-overwrites-the-current-line
 # Use the start and stop tokens to define a period of time for color to be activated.
@@ -84,6 +85,14 @@ alias statement='python /Users/$USER/git/statement_parser/parser.py'
 alias clean='pbpaste | pbcopy'
 alias pwgen='ruby ~/git/scripts/pwgen.rb'
 alias ts='date +"%Y-%m-%d %H:%M:%S" | perl -ne "chomp and print" | pbcopy'
+alias gentag='ctags -R --exclude=.git --exclude=log *'
+alias rakedb='bundle exec rake db:drop db:create db:migrate db:seed db:test:prepare'
+alias gcm='git checkout master'
+alias v='mvim .'
+alias filter='grep -vE "(log|Binary)"'
+alias rc='rails console'
+alias rr='rails server'
+alias beg='bundle exec guard'
 
 # Enable the ability to prevent addition to .bash_history with prepended space.
 export HISTCONTROL=ignorespace
