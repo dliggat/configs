@@ -17,6 +17,6 @@
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": false,
 	"word_wrap": false,
-	"ignored_packages": []
-	"vintage_start_in_command_mode": true,
+	"ignored_packages": [],
+	"vintage_start_in_command_mode": true
 }
