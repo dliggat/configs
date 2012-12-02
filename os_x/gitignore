@@ -1,5 +1,0 @@
-# Global .gitignore.
-.DS_Store
-*.swp
-*.pyc
-tags
