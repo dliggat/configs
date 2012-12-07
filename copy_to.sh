@@ -14,6 +14,9 @@ fi
 LOCAL_DIR="/Users/$USER"
 GIT_DIR="/Users/$USER/git/configs/os_x"
 
+echo "You really don't need this anymore since pointing configs at git"
+exit 1
+
 if [ $1 == 'to_local' ]
 then
   echo "Copying files from git repository to local..."
