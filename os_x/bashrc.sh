@@ -83,6 +83,7 @@ export LSCOLORS='GxHxxxxxBxxxxxxxxxgxgx'
 # My custom environment variables and aliases.
 export notes="/Users/$USER/Dropbox/notes"
 alias beg='bundle exec guard'
+alias drb='bundle exec spork'
 alias clean='pbpaste | pbcopy'
 alias fd='find . -type d | sort'
 alias ff='find . -type f | sort'
