@@ -16,6 +16,7 @@
 	[
 		100
 	],
+	"binary_file_patterns": ["*.jpg", "*.jpeg", "*.png", "*.gif", "*.ttf", "*.tga", "*.dds", "*.ico", "*.eot", "*.pdf", "*.swf", "*.jar", "*.zip", "*.scssc"],
 	"soda_classic_tabs": true,
 	"tab_completion": true,
 	"tab_size": 2,
