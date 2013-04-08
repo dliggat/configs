@@ -5,11 +5,11 @@ EXCLUDE="foobar"
 # A function to dispatch access to todo.txt.
 function t() {
     # `t` - No args => just list the task list, but exclude the $EXCLUDE string.
-    if [ $# -eq 0 ] 
+    if [ $# -eq 0 ]
     then
         $TODO_ROOT/todosh/todo.sh -a -d $TODO_ROOT/todo.cfg ls | grep -v $EXCLUDE
 
-    # `t edit` => open the task list for edit in a text editor. 
+    # `t edit` => open the task list for edit in a text editor.
     elif [ "$1" = "edit" ]
     then
         open $TODO_ROOT/todo.txt
@@ -68,7 +68,7 @@ START="\[\e["
 STOP="\[\e[m\]"
 PROMPT_COMMAND='RET=$?;'
 RET_VALUE='$(echo $RET)'
-export PROMPT_COMMAND='PS1="\`if [[ \$? = "0" ]]; then echo "\\[\\033[32m\\]"; else echo "\\[\\033[31m\\]"; fi\`[\!] $START$YELLOW\u@\h:$STOP $START$WHITE\$(shortpath)$STOP$START$RED\$(parse_git_branch)$STOP \$ "'   
+export PROMPT_COMMAND='PS1="\`if [[ \$? = "0" ]]; then echo "\\[\\033[32m\\]"; else echo "\\[\\033[31m\\]"; fi\`[\!] $START$YELLOW\u@\h:$STOP $START$WHITE\$(shortpath)$STOP$START$RED\$(parse_git_branch)$STOP \$ "'
 
 # Putting /usr/local/bin in front of other paths in $PATH as suggested by `brew doctor`.
 export PATH=/usr/local/bin:$PATH
@@ -84,6 +84,7 @@ export LSCOLORS='GxHxxxxxBxxxxxxxxxgxgx'
 export notes="/Users/$USER/Dropbox/notes"
 alias beg='bundle exec guard'
 alias drb='bundle exec spork'
+alias be='bundle exec'
 alias clean='pbpaste | pbcopy'
 alias fd='find . -type d | sort'
 alias ff='find . -type f | sort'
@@ -106,6 +107,8 @@ alias sha1sum='openssl sha1'
 alias spec='rspec -b -c -f s'
 alias ts='date +"%Y-%m-%d %H:%M:%S" | perl -ne "chomp and print" | pbcopy'
 alias v='mvim .'
+alias srcy='source ~/.bashrc'
+alias st='sublime -n'
 
 # Enable the ability to prevent addition to .bash_history with prepended space.
 export HISTCONTROL=ignorespace

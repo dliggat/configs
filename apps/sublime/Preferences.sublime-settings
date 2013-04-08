@@ -1,6 +1,23 @@
 {
 	"auto_complete_commit_on_tab": true,
 	"auto_match_enabled": false,
+	"binary_file_patterns":
+	[
+		"*.jpg",
+		"*.jpeg",
+		"*.png",
+		"*.gif",
+		"*.ttf",
+		"*.tga",
+		"*.dds",
+		"*.ico",
+		"*.eot",
+		"*.pdf",
+		"*.swf",
+		"*.jar",
+		"*.zip",
+		"*.scssc"
+	],
 	"color_scheme": "Packages/Color Scheme - Default/Monokai Bright.tmTheme",
 	"draw_white_space": "selection",
 	"ensure_newline_at_eof_on_save": true,
@@ -16,7 +33,6 @@
 	[
 		100
 	],
-	"binary_file_patterns": ["*.jpg", "*.jpeg", "*.png", "*.gif", "*.ttf", "*.tga", "*.dds", "*.ico", "*.eot", "*.pdf", "*.swf", "*.jar", "*.zip", "*.scssc"],
 	"soda_classic_tabs": true,
 	"tab_completion": true,
 	"tab_size": 2,
