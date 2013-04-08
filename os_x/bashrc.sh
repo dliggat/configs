@@ -37,6 +37,29 @@ function parse_git_branch {
   echo "("${ref#refs/heads/}")"
 }
 
+function prompt_suffix {
+  hour=`date +%k`  # Get current hour in 24-hr format.
+  if ((0<=$hour && $hour<=6))
+  then
+    message="🌙"  # Crescent moon.
+  elif ((7<=$hour && $hour<=11))
+  then
+    message="☕"  # Coffee cup.
+  elif ((12<=$hour && $hour<=14))
+  then
+    message="🍴"  # Knife and fork.
+  elif ((15<=$hour && $hour<=17))
+  then
+    message="💡"  # Lightbulb.
+  elif ((18<=$hour && $hour<=0))
+  then
+    message="🍺"  # Beer mug.
+  else
+    message="something wrong"  # Should never happen.
+  fi
+  echo "$message  "
+}
+
 function shortpath {
   #   How many characters of the $PWD should be kept
   local pwd_length=30
@@ -68,7 +91,7 @@ START="\[\e["
 STOP="\[\e[m\]"
 PROMPT_COMMAND='RET=$?;'
 RET_VALUE='$(echo $RET)'
-export PROMPT_COMMAND='PS1="\`if [[ \$? = "0" ]]; then echo "\\[\\033[32m\\]"; else echo "\\[\\033[31m\\]"; fi\`[\!] $START$YELLOW\u@\h:$STOP $START$WHITE\$(shortpath)$STOP$START$RED\$(parse_git_branch)$STOP \$ "'
+export PROMPT_COMMAND='PS1="\`if [[ \$? = "0" ]]; then echo "\\[\\033[32m\\]"; else echo "\\[\\033[31m\\]"; fi\`[\!] $START$YELLOW\u@\h:$STOP $START$WHITE\$(shortpath)$STOP$START$RED\$(parse_git_branch)$STOP $(prompt_suffix)"'
 
 # Putting /usr/local/bin in front of other paths in $PATH as suggested by `brew doctor`.
 export PATH=/usr/local/bin:$PATH
