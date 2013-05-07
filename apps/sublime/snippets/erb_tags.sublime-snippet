@@ -1,0 +1,8 @@
+<snippet>
+  <content><![CDATA[<% $0 %>]]></content>
+  <tabTrigger>erb</tabTrigger>
+  <!-- Scopes are optional - restrict to certain files. -->
+  <!-- <scope>text.html.ruby</scope> -->
+  <scope>text.html.ruby</scope>
+  <description>ERB tags</description>
+</snippet>
