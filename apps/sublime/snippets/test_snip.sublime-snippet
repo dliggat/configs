@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[Type your snippet here]]></content>
+    <!-- Optional: Tab trigger to activate the snippet -->
+    <tabTrigger>foobar</tabTrigger>
+    <!-- Optional: Description to show in the menu -->
+    <description>My Fancy Snippet</description>
+</snippet>
+
