@@ -45,13 +45,13 @@ function prompt_suffix {
   elif ((7<=$hour && $hour<=11))
   then
     message="☕"  # Coffee cup.
-  elif ((12<=$hour && $hour<=14))
+  elif ((12<=$hour && $hour<=13))
   then
     message="🍴"  # Knife and fork.
-  elif ((15<=$hour && $hour<=17))
+  elif ((14<=$hour && $hour<=17))
   then
     message="💡"  # Lightbulb.
-  elif ((18<=$hour && $hour<=0))
+  elif ((18<=$hour && $hour<=23))
   then
     message="🍺"  # Beer mug.
   else
@@ -76,9 +76,9 @@ function shortpath {
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
+#if [ -f `brew --prefix`/etc/bash_completion ]; then
+#    . `brew --prefix`/etc/bash_completion
+#fi
 
 # Taken from http://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/
 # Also read this: http://superuser.com/questions/246625/bash-command-prompt-overwrites-the-current-line
