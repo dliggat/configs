@@ -6,7 +6,7 @@ A common place to store configuration files for OS X, vim, etc.
   * Create links from well-known locations to git repository: `ln -s ~/git/configs/os_x/bashrc.sh ~/.bashrc`
 
 
-## Home Directory
+## Dotfiles
 
 ```bash
 $ ls -la | grep lrwx
