@@ -29,6 +29,7 @@
 	],
 	"overlay_scroll_bars": "enabled",
 	"remember_open_files": false,
+	"hot_exit": false,
 	"rulers":
 	[
 		100
